@@ -8,8 +8,16 @@
 # References: 
 # https://www.pythontutorial.net/python-basics/python-read-text-file/
 # https://www.geeksforgeeks.org/count-number-of-lines-in-a-text-file-in-python/
+# https://thispointer.com/python-search-strings-in-a-file-and-get-line-numbers-of-lines-containing-the-string/
+# https://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-identical
+# https://stackoverflow.com/questions/23655005/printing-boolean-values-true-false-with-the-format-method-in-python
 
 # -------------------------------------------------
+from itertools import groupby
+
+def all_equal(iterable):
+	g = groupby(iterable)
+	return next(g, True) and not next(g, False)
 
 def check_if_string_in_file(file_name, string_to_search):
 	""" Check if any line in the file contains given string """
@@ -43,7 +51,6 @@ def search_multiple_strings_in_file(file_name, list_of_strings):
 	"""Get line from the file along with line numbers, which contains any string from the list"""
 	line_number = 0
 	list_of_results = []
-	list_of_results1 = []
 	# Open the file in read only mode
 	with open(file_name, 'r') as read_obj:
 		# Read all lines in the file one by one
@@ -51,118 +58,123 @@ def search_multiple_strings_in_file(file_name, list_of_strings):
 			line_number += 1
 			# For each line, check if line contains any string from the list of strings
 			for string_to_search in list_of_strings:
-				if string_to_search in line and string_to_search == "=== Model Options ===":
+				if string_to_search in line:
 					# If any string is found in line, then append that line along with line number in list
 					list_of_results.append((string_to_search, line_number, line.rstrip()))
-					list_of_results1.append((string_to_search, line_number+1, line.rstrip()))
 	# Return list of tuples containing matched string, line numbers and lines where string is found
-	return list_of_results, list_of_results1
+	return list_of_results
+
+# Opening a file 
+file = open("GPU-int8_resnet-50.txt","r") 
+Counter = 0
+
+# Reading from file 
+Content = file.read() 
+CoList = Content.split("\n")
+
+# Find "Format"
+matched_format = search_string_in_file('GPU-int8_resnet-50.txt', 'Format:')
+# Find "Prototxt"
+matched_prototxt = search_string_in_file('GPU-int8_resnet-50.txt', 'Prototxt')
+# Find "Precision"
+matched_precision = search_string_in_file('GPU-int8_resnet-50.txt', 'Precision')
+# Find "Iterations"
+matched_iterations = search_string_in_file('GPU-int8_resnet-50.txt', 'Iterations')
+# Find "Batch"
+matched_batch = search_string_in_file('GPU-int8_resnet-50.txt', 'Batch')
+# Find "throughput"
+matched_throughput = search_string_in_file('GPU-int8_resnet-50.txt', 'throughput')
+
+line_of_format = []
+line_of_prototxt = []
+line_of_precision = []
+line_of_iteration = []
+line_of_batch = []
+line_of_throughput = []
+
+for elem in matched_format:
+	line_of_format.append(elem[0])
 	
-def main():
-#	print('*** Check if a string exists in a file *** ')
-#	
-#	# Check if string 'is' is found in file 'sample.txt'
-#	if check_if_string_in_file('GPU-int8_resnet-50.txt', '=== Model Options ==='):
-#		print('Yes, string found in file')
-#	else:
-#		print('String not found in file')
-#		
-#	print('*** Search for a string in file & get all lines containing the string along with line numbers ****')
-#	
-#	matched_lines = search_string_in_file('GPU-int8_resnet-50.txt', '=== Model Options ===')
-#	print('Total Matched lines : ', len(matched_lines))
-#	for elem in matched_lines:
-#		print('Line Number = ', elem[0], ' :: Line = ', elem[1])
+for elem in matched_prototxt:
+	line_of_prototxt.append(elem[0])
 	
-	print('*** Search for multiple strings in a file and get lines containing string along with line numbers ***')
+for elem in matched_precision:
+	line_of_precision.append(elem[0])
 	
-	# search for given strings in the file 'sample.txt'
-	matched_lines, matched_lines1 = search_multiple_strings_in_file('GPU-int8_resnet-50.txt', ['=== Model Options ===', '=== Build Options ===', '=== Inference Options ===', '=== Reporting Options ==='])
-	print('Total Matched lines : ', len(matched_lines))
-	for elem in matched_lines:
-#		print('Word = ', elem[0], ' :: Line Number = ', elem[1], ' :: Line = ', elem[2])
-#		print(elem[1], ' :: ', elem[2][25::])
-		print(elem[2][25::])
-	for elem in matched_lines1:
-#		print('Word = ', elem[0], ' :: Line Number = ', elem[1], ' :: Line = ', elem[2])
-#		print(elem[1], ' :: ', elem[2][25::])
-		print(elem[1])
+for elem in matched_iterations:
+	line_of_iteration.append(elem[0])
+	
+for elem in matched_batch:
+	line_of_batch.append(elem[0])
+	
+for elem in matched_throughput:
+	line_of_throughput.append(elem[0])
 
-if __name__ == '__main__':
-	main()
+list_of_format = []
+list_of_prototxt = []
+list_of_precision = []
+list_of_iteration = []
+list_of_batch=[]
+list_of_throughput=[]
 
-#matched_lines = search_string_in_file('GPU-int8_resnet-50.txt', '=== Model Options ===')
-#matched_lines = search_string_in_file('int8_batch1.txt', '=== Model Options ===')
+# "Format" is equal?
+#print("[INFO] Checking the 'Format' used...")
+for i in line_of_format:
+	list_of_format.append(CoList[i-1][34::])
 
-#print('Total Matched lines : ', len(matched_lines))
-#for elem in matched_lines:
-##	print('Line Number = ', elem[0], ' :: Line = ', elem[1])
-#	print(elem[1].split("\n"))
+condition = all_equal(list_of_format)
+if all_equal(list_of_format):
+	print("[INFO] Format: %s" % list_of_format[0])
+else:
+	print("[ERROR] Please check the file!")
+	print("List of 'Format' used were mixed!")
 
-## Opening a file 
-#file = open("GPU-int8_resnet-50.txt","r") 
-#Counter = 0
+# "Prototxt" is equal?
+#print("[INFO] Checking the 'Prototxt' used...")
+for i in line_of_prototxt:
+	list_of_prototxt.append(CoList[i-1][36::])
 
-## Reading from file 
-#Content = file.read() 
-#CoList = Content.split("\n")
+condition = all_equal(list_of_prototxt)
+if all_equal(list_of_prototxt):
+	print("[INFO] Prototxt: %s" % list_of_prototxt[0])
+else:
+	print("[ERROR] Please check the file!")
+	print("List of 'Prototxt' used were mixed!")
 
-#print(Content)
+# "Precisions" is equal?
+#print("[INFO] Checking the 'Precisions' used...")
+for i in line_of_precision:
+	list_of_precision.append(CoList[i-1][37::])
 
-#for i in CoList: 
-#	if i: 
-#		Counter += 1
+condition = all_equal(list_of_precision)
+if all_equal(list_of_precision):
+	print("[INFO] Precisions: %s" % list_of_precision[0])
+else:
+	print("[ERROR] Please check the file!")
+	print("List of 'Precisions' used were mixed!")
+	
+# "Iterations" is equal?
+#print("[INFO] Checking the 'Iterations' used...")
+for i in line_of_iteration:
+	list_of_iteration.append(CoList[i-1][38::])
 
-#print("This is the number of lines in the file") 
-#print(Counter)
+condition = all_equal(list_of_iteration)
+if all_equal(list_of_precision):
+	print("[INFO] Iterations: %s" % list_of_iteration[0])
+else:
+	print("[ERROR] Please check the file!")
+	print("List of 'Iterations' used were mixed!")
+	
+# "Batch" is equal?
+#print("[INFO] Checking the 'Iterations' used...")
+for i in line_of_batch:
+	list_of_batch.append(CoList[i-1][26::])
+	
+print(list_of_batch)
 
-##Format:
-#print(CoList[2])
-
-##Prototxt:
-#print(CoList[4])
-
-##Precision:
-#print(CoList[11])
-
-##Batch:
-#print(CoList[27])
-
-##throughput:
-#print(CoList[80])
-
-##Batch:
-#print(CoList[121])
-
-##throughput:
-#print(CoList[161])
-
-##Batch:
-#print(CoList[202])
-
-##throughput:
-#print(CoList[240])
-
-##Batch:
-#print(CoList[281])
-
-##throughput:
-#print(CoList[318])
-
-##Batch:
-#print(CoList[359])
-
-##throughput:
-#print(CoList[395])
-
-##Batch:
-#print(CoList[436])
-
-##throughput:
-#print(CoList[472])
-
-##Batch:
-#print(CoList[513])
-
-##throughput:
-#print(CoList[549])
+# "throughput" is equal?
+#print("[INFO] Checking the 'Iterations' used...")
+for i in line_of_throughput:
+	list_of_throughput.append(CoList[i-1][38::])
+	
+print(list_of_throughput)
