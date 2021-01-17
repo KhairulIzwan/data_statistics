@@ -11,10 +11,29 @@
 # https://thispointer.com/python-search-strings-in-a-file-and-get-line-numbers-of-lines-containing-the-string/
 # https://stackoverflow.com/questions/3844801/check-if-all-elements-in-a-list-are-identical
 # https://stackoverflow.com/questions/23655005/printing-boolean-values-true-false-with-the-format-method-in-python
+# https://realpython.com/python-csv/#writing-csv-files-with-csv
+# https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/
+# https://pynative.com/print-pattern-python-examples/
+# https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/
+# https://www.w3resource.com/python-exercises/python-basic-exercise-99.php
 
 # -------------------------------------------------
+# import the necessary packages
+import argparse
 from itertools import groupby
 import sys
+import csv
+import os
+from datetime import datetime
+
+os.system('clear')
+os.system('tree')
+
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-f", "--file", required=True,
+	help="path to input data")
+args = vars(ap.parse_args())
 
 #class Extract(self):
 #	def __init__(self):
@@ -99,9 +118,22 @@ def list_of_interest(listing, N):
 		list_of_interest.append(CoList[i-1][N::])
 	
 	return list_of_interest
+	
+def clean_data(listing):
+	""" """
+	condition = all_equal(listing)
+	if all_equal(listing):
+		return listing[0]
+	else:
+		# exits the program 
+		print("[ERROR] Required headers are missing or in-balance...")
+		print("[ERROR] Please check the file!")
+		sys.exit("[ERROR] Files may be corrupted...")
+
+#print(args["file"][6:-4])
 
 # Opening a file 
-file = open("GPU-int8_resnet-50.txt","r")
+file = open(args["file"],"r")
 
 # Reading from file 
 Content = file.read() 
@@ -118,7 +150,7 @@ listHeader = 	[
 		"=== Inference Options ===", 
 		"=== Reporting Options ==="
 		]
-boolHeader = matched_lines("GPU-int8_resnet-50.txt", listHeader)
+boolHeader = matched_lines(args["file"], listHeader)
 if boolHeader:
 	pass
 else:
@@ -126,12 +158,12 @@ else:
 	print("[ERROR] Required headers are missing or in-balance...")
 	sys.exit("[ERROR] Files may be corrupted...")
 
-line_of_format = find_line_of_interest('GPU-int8_resnet-50.txt', 'Format:')
-line_of_prototxt = find_line_of_interest('GPU-int8_resnet-50.txt', 'Prototxt:')
-line_of_precision = find_line_of_interest('GPU-int8_resnet-50.txt', 'Precision:')
-line_of_iteration = find_line_of_interest('GPU-int8_resnet-50.txt', 'Iterations:')
-line_of_batch = find_line_of_interest('GPU-int8_resnet-50.txt', 'Batch:')
-line_of_throughput = find_line_of_interest('GPU-int8_resnet-50.txt', 'throughput:')
+line_of_format = find_line_of_interest(args["file"], 'Format:')
+line_of_prototxt = find_line_of_interest(args["file"], 'Prototxt:')
+line_of_precision = find_line_of_interest(args["file"], 'Precision:')
+line_of_iteration = find_line_of_interest(args["file"], 'Iterations:')
+line_of_batch = find_line_of_interest(args["file"], 'Batch:')
+line_of_throughput = find_line_of_interest(args["file"], 'throughput:')
 
 list_of_format = list_of_interest(line_of_format, 34)
 list_of_prototxt = list_of_interest(line_of_prototxt, 36)
@@ -140,116 +172,50 @@ list_of_iteration = list_of_interest(line_of_iteration, 38)
 list_of_batch = list_of_interest(line_of_batch, 26)
 list_of_throughput = list_of_interest(line_of_throughput, 38)
 
-print(list_of_format)
-print(list_of_prototxt)
-print(list_of_precision)
-print(list_of_iteration)
-print(list_of_batch)
-print(list_of_throughput)
+# Checking for purist data
+# Ensure same "Format", "Prototxt", "Precision", "Iterations" were used
+usedFormat = clean_data(list_of_format)
+usedPrototxt = clean_data(list_of_prototxt)
+usedPrecision = clean_data(list_of_precision)
+usedIteration = clean_data(list_of_iteration)
 
-## Find "Format"
-#matched_format = search_string_in_file('GPU-int8_resnet-50.txt', 'Format:')
-## Find "Prototxt"
-#matched_prototxt = search_string_in_file('GPU-int8_resnet-50.txt', 'Prototxt')
-## Find "Precision"
-#matched_precision = search_string_in_file('GPU-int8_resnet-50.txt', 'Precision')
-## Find "Iterations"
-#matched_iterations = search_string_in_file('GPU-int8_resnet-50.txt', 'Iterations')
-## Find "Batch"
-#matched_batch = search_string_in_file('GPU-int8_resnet-50.txt', 'Batch')
-## Find "throughput"
-#matched_throughput = search_string_in_file('GPU-int8_resnet-50.txt', 'throughput')
+# Summary
+print("*" * 15 + " SUMMARY " + "*" * 15)
+print("Format: %s" % usedFormat)
+print("Prototxt: %s" % usedPrototxt)
+print("Precision: %s" % usedPrecision)
+print("Iteration: %s" % usedIteration)
+print("Throughput:")
 
-#line_of_format = []
-#line_of_prototxt = []
-#line_of_precision = []
-#line_of_iteration = []
-#line_of_batch = []
-#line_of_throughput = []
+for (i, j) in zip(list_of_batch, list_of_throughput):
+	print("%s: %s" % (i, j))
 
-#for elem in matched_format:
-#	line_of_format.append(elem)
-#	
-#for elem in matched_prototxt:
-#	line_of_prototxt.append(elem)
-#	
-#for elem in matched_precision:
-#	line_of_precision.append(elem)
-#	
-#for elem in matched_iterations:
-#	line_of_iteration.append(elem)
-#	
-#for elem in matched_batch:
-#	line_of_batch.append(elem)
-#	
-#for elem in matched_throughput:
-#	line_of_throughput.append(elem)
+print("*" * 40)
 
-#list_of_format = []
-#list_of_prototxt = []
-#list_of_precision = []
-#list_of_iteration = []
-#list_of_batch=[]
-#list_of_throughput=[]
+# Save a copy
+# datetime object containing current date and time
+now = datetime.now()
+# dd/mm/YY H:M:S
+dt_string = now.strftime("%B %d, %Y %H:%M:%S")
+#newFilename = args["file"][:-4] + '.xls'
+newFilename = args["file"][:-4] + "-" + dt_string +'.csv'
+ 
+with open(newFilename, mode='w') as extract_file:
+	extract_writer = csv.writer(
+					extract_file, 
+					delimiter=',', 
+					quotechar='"', 
+					quoting=csv.QUOTE_MINIMAL
+					)
 
-## "Format" is equal?
-##print("[INFO] Checking the 'Format' used...")
-#for i in line_of_format:
-#	list_of_format.append(CoList[i-1][34::])
-
-#condition = all_equal(list_of_format)
-#if all_equal(list_of_format):
-#	print("[INFO] Format: %s" % list_of_format[0])
-#else:
-#	print("[ERROR] Please check the file!")
-#	print("List of 'Format' used were mixed!")
-
-### "Prototxt" is equal?
-###print("[INFO] Checking the 'Prototxt' used...")
-##for i in line_of_prototxt:
-##	list_of_prototxt.append(CoList[i-1][36::])
-
-##condition = all_equal(list_of_prototxt)
-##if all_equal(list_of_prototxt):
-##	print("[INFO] Prototxt: %s" % list_of_prototxt[0])
-##else:
-##	print("[ERROR] Please check the file!")
-##	print("List of 'Prototxt' used were mixed!")
-
-### "Precisions" is equal?
-###print("[INFO] Checking the 'Precisions' used...")
-##for i in line_of_precision:
-##	list_of_precision.append(CoList[i-1][37::])
-
-##condition = all_equal(list_of_precision)
-##if all_equal(list_of_precision):
-##	print("[INFO] Precisions: %s" % list_of_precision[0])
-##else:
-##	print("[ERROR] Please check the file!")
-##	print("List of 'Precisions' used were mixed!")
-##	
-### "Iterations" is equal?
-###print("[INFO] Checking the 'Iterations' used...")
-##for i in line_of_iteration:
-##	list_of_iteration.append(CoList[i-1][38::])
-
-##condition = all_equal(list_of_iteration)
-##if all_equal(list_of_precision):
-##	print("[INFO] Iterations: %s" % list_of_iteration[0])
-##else:
-##	print("[ERROR] Please check the file!")
-##	print("List of 'Iterations' used were mixed!")
-##	
-### "Batch" is equal?
-###print("[INFO] Checking the 'Iterations' used...")
-##for i in line_of_batch:
-##	list_of_batch.append(CoList[i-1][26::])
-##	
-##print(list_of_batch)
-
-### "throughput" is equal?
-###print("[INFO] Checking the 'Iterations' used...")
-##for i in line_of_throughput:
-##	list_of_throughput.append(CoList[i-1][38::])
-##	
-##print(list_of_throughput)
+	extract_writer.writerow(["Format", usedFormat])
+	extract_writer.writerow(["Prototxt", usedPrototxt])
+	extract_writer.writerow(["Precision", usedPrecision])
+	extract_writer.writerow(["Iteration", usedIteration])
+	extract_writer.writerow(["Throughput"])
+	
+	for (i, j) in zip(list_of_batch, list_of_throughput):
+		extract_writer.writerow([i, j])
+		
+print("[INFO] Extracted files were save in: %s" % newFilename)
+os.system('tree')
