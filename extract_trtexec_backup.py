@@ -209,7 +209,7 @@ with open(newFilename, mode='w') as extract_file:
 	extract_writer.writerow(["Prototxt", usedPrototxt])
 	extract_writer.writerow(["Precision", usedPrecision])
 	extract_writer.writerow(["Iteration", usedIteration])
-	extract_writer.writerow([" ", "Throughput"])
+	extract_writer.writerow(["Throughput"])
 	
 	for (i, j) in zip(list_of_batch, list_of_throughput):
 		extract_writer.writerow([i, j])
