@@ -608,7 +608,7 @@ python extract_trtexec.py
 ```
 
 ## Ouput
-![Expected Output](https://github.com/KhairulIzwan/data_statistics/blob/main/files/GPU-int8_resnet-50-January%2018%2C%202021%2008:30:14.csv)
+[Result](https://github.com/KhairulIzwan/data_statistics/blob/main/files/GPU-int8_resnet-50-January%2018%2C%202021%2008:30:14.csv)
 
 ## References:
 1. [Python Read Text File](https://www.pythontutorial.net/python-basics/python-read-text-file/)
