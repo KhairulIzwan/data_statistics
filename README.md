@@ -11,7 +11,10 @@ On Terminal, run:
 $ git clone https://github.com/KhairulIzwan/data_statistics.git
 ```
 
-## Required Parameters
+## Coding Stages
+Before finalizing and writing the codes, we were expected to have new file
+which were looked like this:
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 #### Important Header
 1. "=== Model Options ===", 
@@ -26,8 +29,6 @@ $ git clone https://github.com/KhairulIzwan/data_statistics.git
 4. 'Iterations:'
 5. 'Batch:'
 6. 'throughput:'
-
-## Coding Stages
 
 #### Hardcoded
 1. On terminal, run:
