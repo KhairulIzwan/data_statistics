@@ -607,6 +607,9 @@ python extract_hardcoded.py
 python extract_trtexec.py
 ```
 
+## Ouput
+
+
 ## References:
 1. [Python Read Text File](https://www.pythontutorial.net/python-basics/python-read-text-file/)
 2. [Count number of lines in a text file in Python](https://www.geeksforgeeks.org/count-number-of-lines-in-a-text-file-in-python/)

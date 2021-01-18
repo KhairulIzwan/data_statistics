@@ -1,0 +1,12 @@
+Format,Caffe
+Prototxt,Models/resnet-50.prototxt
+Precision,FP32+INT8
+Iteration,3
+ ,Throughput
+Batch: 1,18.0758 qps
+Batch: 4,20.0093 qps
+Batch: 8,21.3609 qps
+Batch: 16,22.3395 qps
+Batch: 32,23.453 qps
+Batch: 64,24.7251 qps
+Batch: 128,24.7792 qps
