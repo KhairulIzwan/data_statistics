@@ -581,20 +581,18 @@ $ git clone https://github.com/KhairulIzwan/data_statistics.git
 [01/12/2021-17:59:06] [I] total compute time: 15.4726 s
 &&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --int8 --batch=128 --iterations=3 --output=prob --useSpinWait
 ```
-
-#### Important Header
-1. "=== Model Options ===", 
-2. "=== Build Options ===", 
-3. "=== Inference Options ===", 
-4. "=== Reporting Options ==="
-
-#### Important Parameters
-1. 'Format:'
-2. 'Prototxt:'
-3. 'Precision:'
-4. 'Iterations:'
-5. 'Batch:'
-6. 'throughput:'
+3. So, we known that all required "parameter" on the expected output are:
+	1. 'Format:'
+	2. 'Prototxt:'
+	3. 'Precision:'
+	4. 'Iterations:'
+	5. 'Batch:'
+	6. 'throughput:'
+which were located under various "header" listed below:
+	1. "=== Model Options ===", 
+	2. "=== Build Options ===", 
+	3. "=== Inference Options ===", 
+	4. "=== Reporting Options ==="
 
 #### Hardcoded
 1. On terminal, run:
