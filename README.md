@@ -5,12 +5,34 @@ A project to **automated the extraction of** **"required"** parameters from
 **original text files (.txt)** and make a copy of in **comma separated value**
 **file (.csv)**.
 
+## Installing
+On Terminal, run:
+```
+$ git clone https://github.com/KhairulIzwan/data_statistics.git
+```
+
 ## Required Parameters
+
 #### Important Header
 1. "=== Model Options ===", 
 2. "=== Build Options ===", 
 3. "=== Inference Options ===", 
 4. "=== Reporting Options ==="
+
+#### Important Parameters
+1. 'Format:'
+2. 'Prototxt:'
+3. 'Precision:'
+4. 'Iterations:'
+5. 'Batch:'
+6. 'throughput:'
+
+## Coding Stages
+
+#### Hardcoded
+1. On terminal, run:
+```
+```
 
 ## References:
 1. [Python Read Text File](https://www.pythontutorial.net/python-basics/python-read-text-file/)
