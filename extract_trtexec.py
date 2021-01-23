@@ -28,7 +28,7 @@ import os
 from datetime import datetime
 
 os.system('clear')
-os.system('tree')
+#os.system('tree')
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -116,14 +116,16 @@ def list_of_interest(listing, N):
 	
 	return list_of_interest
 	
-def clean_data(listing):
+def clean_data(listing, stringName):
 	""" """
 	condition = all_equal(listing)
 	if all_equal(listing):
 		return listing[0]
 	else:
 		# exits the program 
-		print("[ERROR] Required headers are missing or in-balance...")
+		print("[ERROR] Required %s are abnormal..." % stringName)
+		print("[ERROR] List of %s:" % stringName)
+		print(listing)
 		print("[ERROR] Please check the file!")
 		sys.exit("[ERROR] Files may be corrupted...")
 
@@ -171,10 +173,10 @@ list_of_throughput = list_of_interest(line_of_throughput, 38)
 
 # Checking for purist data
 # Ensure same "Format", "Prototxt", "Precision", "Iterations" were used
-usedFormat = clean_data(list_of_format)
-usedPrototxt = clean_data(list_of_prototxt)
-usedPrecision = clean_data(list_of_precision)
-usedIteration = clean_data(list_of_iteration)
+usedFormat = clean_data(list_of_format, "Format")
+usedPrototxt = clean_data(list_of_prototxt, "Prototxt")
+usedPrecision = clean_data(list_of_precision, "Precision")
+usedIteration = clean_data(list_of_iteration, "Iterations")
 
 # Summary
 print("*" * 15 + " SUMMARY " + "*" * 15)

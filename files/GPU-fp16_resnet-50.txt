@@ -1,0 +1,606 @@
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=1 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:10:56] [I] === Model Options ===
+[01/28/2018-09:10:56] [I] Format: Caffe
+[01/28/2018-09:10:56] [I] Model: 
+[01/28/2018-09:10:56] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:10:56] [I] Output: prob
+[01/28/2018-09:10:56] [I] === Build Options ===
+[01/28/2018-09:10:56] [I] Max batch: 1
+[01/28/2018-09:10:56] [I] Workspace: 16 MB
+[01/28/2018-09:10:56] [I] minTiming: 1
+[01/28/2018-09:10:56] [I] avgTiming: 8
+[01/28/2018-09:10:56] [I] Precision: FP32+FP16
+[01/28/2018-09:10:56] [I] Calibration: 
+[01/28/2018-09:10:56] [I] Safe mode: Disabled
+[01/28/2018-09:10:56] [I] Save engine: 
+[01/28/2018-09:10:56] [I] Load engine: 
+[01/28/2018-09:10:56] [I] Builder Cache: Enabled
+[01/28/2018-09:10:56] [I] NVTX verbosity: 0
+[01/28/2018-09:10:56] [I] Inputs format: fp32:CHW
+[01/28/2018-09:10:56] [I] Outputs format: fp32:CHW
+[01/28/2018-09:10:56] [I] Input build shapes: model
+[01/28/2018-09:10:56] [I] Input calibration shapes: model
+[01/28/2018-09:10:56] [I] === System Options ===
+[01/28/2018-09:10:56] [I] Device: 0
+[01/28/2018-09:10:56] [I] DLACore: 
+[01/28/2018-09:10:56] [I] Plugins:
+[01/28/2018-09:10:56] [I] === Inference Options ===
+[01/28/2018-09:10:56] [I] Batch: 1
+[01/28/2018-09:10:56] [I] Input inference shapes: model
+[01/28/2018-09:10:56] [I] Iterations: 3
+[01/28/2018-09:10:56] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:10:56] [I] Sleep time: 0ms
+[01/28/2018-09:10:56] [I] Streams: 1
+[01/28/2018-09:10:56] [I] ExposeDMA: Disabled
+[01/28/2018-09:10:56] [I] Spin-wait: Enabled
+[01/28/2018-09:10:56] [I] Multithreading: Disabled
+[01/28/2018-09:10:56] [I] CUDA Graph: Disabled
+[01/28/2018-09:10:56] [I] Skip inference: Disabled
+[01/28/2018-09:10:56] [I] Inputs:
+[01/28/2018-09:10:56] [I] === Reporting Options ===
+[01/28/2018-09:10:56] [I] Verbose: Disabled
+[01/28/2018-09:10:56] [I] Averages: 3 inferences
+[01/28/2018-09:10:56] [I] Percentile: 99
+[01/28/2018-09:10:56] [I] Dump output: Disabled
+[01/28/2018-09:10:56] [I] Profile: Disabled
+[01/28/2018-09:10:56] [I] Export timing to JSON file: 
+[01/28/2018-09:10:56] [I] Export output to JSON file: 
+[01/28/2018-09:10:56] [I] Export profile to JSON file: 
+[01/28/2018-09:10:56] [I] 
+[01/28/2018-09:11:11] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:12:31] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:12:31] [I] Starting inference threads
+[01/28/2018-09:12:34] [I] Warmup completed 8 queries over 200 ms
+[01/28/2018-09:12:34] [I] Timing trace has 113 queries over 3.05102 s
+[01/28/2018-09:12:34] [I] Trace averages of 3 runs:
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9138 ms - Host latency: 26.9751 ms (end to end 26.9875 ms, enqueue 1.83366 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8467 ms - Host latency: 26.9079 ms (end to end 26.9213 ms, enqueue 1.82348 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8814 ms - Host latency: 26.9433 ms (end to end 26.9578 ms, enqueue 1.85336 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8761 ms - Host latency: 26.9366 ms (end to end 26.9505 ms, enqueue 1.78137 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8838 ms - Host latency: 26.9447 ms (end to end 26.9553 ms, enqueue 1.79348 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8248 ms - Host latency: 26.8857 ms (end to end 26.8964 ms, enqueue 1.77287 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9101 ms - Host latency: 26.9709 ms (end to end 26.9827 ms, enqueue 1.77287 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9503 ms - Host latency: 27.013 ms (end to end 27.0251 ms, enqueue 1.77067 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9064 ms - Host latency: 26.9677 ms (end to end 26.9838 ms, enqueue 1.95398 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9007 ms - Host latency: 26.9616 ms (end to end 26.9703 ms, enqueue 1.84644 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8825 ms - Host latency: 26.9427 ms (end to end 26.9585 ms, enqueue 1.84047 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8996 ms - Host latency: 26.9607 ms (end to end 26.9716 ms, enqueue 1.74833 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9549 ms - Host latency: 27.0155 ms (end to end 27.0306 ms, enqueue 1.77454 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9213 ms - Host latency: 26.9826 ms (end to end 26.9945 ms, enqueue 1.85177 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8696 ms - Host latency: 26.9308 ms (end to end 26.9452 ms, enqueue 1.86837 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 27.0133 ms - Host latency: 27.0747 ms (end to end 27.0832 ms, enqueue 1.85815 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9013 ms - Host latency: 26.9622 ms (end to end 26.9803 ms, enqueue 1.764 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8814 ms - Host latency: 26.9429 ms (end to end 26.9584 ms, enqueue 1.80538 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.903 ms - Host latency: 26.9639 ms (end to end 26.9803 ms, enqueue 1.7782 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8313 ms - Host latency: 26.8924 ms (end to end 26.9059 ms, enqueue 1.76477 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 27.0007 ms - Host latency: 27.0618 ms (end to end 27.076 ms, enqueue 1.79244 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9507 ms - Host latency: 27.0111 ms (end to end 27.0251 ms, enqueue 1.92778 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8513 ms - Host latency: 26.912 ms (end to end 26.9226 ms, enqueue 1.79077 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8998 ms - Host latency: 26.9611 ms (end to end 26.975 ms, enqueue 1.8007 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9079 ms - Host latency: 26.9694 ms (end to end 26.9836 ms, enqueue 1.90291 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 27.6003 ms - Host latency: 27.6631 ms (end to end 27.6812 ms, enqueue 1.97388 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9763 ms - Host latency: 27.0383 ms (end to end 27.0527 ms, enqueue 2.10889 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8964 ms - Host latency: 26.9578 ms (end to end 26.9713 ms, enqueue 1.88818 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8486 ms - Host latency: 26.9095 ms (end to end 26.9222 ms, enqueue 1.78735 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9163 ms - Host latency: 26.9772 ms (end to end 26.9886 ms, enqueue 1.8252 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9477 ms - Host latency: 27.0085 ms (end to end 27.0151 ms, enqueue 1.823 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.8785 ms - Host latency: 26.9389 ms (end to end 26.9575 ms, enqueue 1.76855 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9279 ms - Host latency: 26.9883 ms (end to end 27.0008 ms, enqueue 1.79281 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.872 ms - Host latency: 26.9336 ms (end to end 26.9515 ms, enqueue 1.88363 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9604 ms - Host latency: 27.0208 ms (end to end 27.0316 ms, enqueue 1.84749 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.9263 ms - Host latency: 26.9867 ms (end to end 26.9972 ms, enqueue 1.76579 ms)
+[01/28/2018-09:12:34] [I] Average on 3 runs - GPU latency: 26.901 ms - Host latency: 26.9618 ms (end to end 26.9807 ms, enqueue 1.81494 ms)
+[01/28/2018-09:12:34] [I] Host Latency
+[01/28/2018-09:12:34] [I] min: 26.8054 ms (end to end 26.8135 ms)
+[01/28/2018-09:12:34] [I] max: 29.0007 ms (end to end 29.0186 ms)
+[01/28/2018-09:12:34] [I] mean: 26.9861 ms (end to end 26.9996 ms)
+[01/28/2018-09:12:34] [I] median: 26.9689 ms (end to end 26.9833 ms)
+[01/28/2018-09:12:34] [I] percentile: 27.1187 ms at 99% (end to end 27.1382 ms at 99%)
+[01/28/2018-09:12:34] [I] throughput: 37.0368 qps
+[01/28/2018-09:12:34] [I] walltime: 3.05102 s
+[01/28/2018-09:12:34] [I] Enqueue Time
+[01/28/2018-09:12:34] [I] min: 1.73877 ms
+[01/28/2018-09:12:34] [I] max: 2.31958 ms
+[01/28/2018-09:12:34] [I] median: 1.80298 ms
+[01/28/2018-09:12:34] [I] GPU Compute
+[01/28/2018-09:12:34] [I] min: 26.7439 ms
+[01/28/2018-09:12:34] [I] max: 28.9368 ms
+[01/28/2018-09:12:34] [I] mean: 26.925 ms
+[01/28/2018-09:12:34] [I] median: 26.9075 ms
+[01/28/2018-09:12:34] [I] percentile: 27.0562 ms at 99%
+[01/28/2018-09:12:34] [I] total compute time: 3.04253 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=1 --iterations=3 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=4 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:12:35] [I] === Model Options ===
+[01/28/2018-09:12:35] [I] Format: Caffe
+[01/28/2018-09:12:35] [I] Model: 
+[01/28/2018-09:12:35] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:12:35] [I] Output: prob
+[01/28/2018-09:12:35] [I] === Build Options ===
+[01/28/2018-09:12:35] [I] Max batch: 4
+[01/28/2018-09:12:35] [I] Workspace: 16 MB
+[01/28/2018-09:12:35] [I] minTiming: 1
+[01/28/2018-09:12:35] [I] avgTiming: 8
+[01/28/2018-09:12:35] [I] Precision: FP32+FP16
+[01/28/2018-09:12:35] [I] Calibration: 
+[01/28/2018-09:12:35] [I] Safe mode: Disabled
+[01/28/2018-09:12:35] [I] Save engine: 
+[01/28/2018-09:12:35] [I] Load engine: 
+[01/28/2018-09:12:35] [I] Builder Cache: Enabled
+[01/28/2018-09:12:35] [I] NVTX verbosity: 0
+[01/28/2018-09:12:35] [I] Inputs format: fp32:CHW
+[01/28/2018-09:12:35] [I] Outputs format: fp32:CHW
+[01/28/2018-09:12:35] [I] Input build shapes: model
+[01/28/2018-09:12:35] [I] Input calibration shapes: model
+[01/28/2018-09:12:35] [I] === System Options ===
+[01/28/2018-09:12:35] [I] Device: 0
+[01/28/2018-09:12:35] [I] DLACore: 
+[01/28/2018-09:12:35] [I] Plugins:
+[01/28/2018-09:12:35] [I] === Inference Options ===
+[01/28/2018-09:12:35] [I] Batch: 4
+[01/28/2018-09:12:35] [I] Input inference shapes: model
+[01/28/2018-09:12:35] [I] Iterations: 3
+[01/28/2018-09:12:35] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:12:35] [I] Sleep time: 0ms
+[01/28/2018-09:12:35] [I] Streams: 1
+[01/28/2018-09:12:35] [I] ExposeDMA: Disabled
+[01/28/2018-09:12:35] [I] Spin-wait: Enabled
+[01/28/2018-09:12:35] [I] Multithreading: Disabled
+[01/28/2018-09:12:35] [I] CUDA Graph: Disabled
+[01/28/2018-09:12:35] [I] Skip inference: Disabled
+[01/28/2018-09:12:35] [I] Inputs:
+[01/28/2018-09:12:35] [I] === Reporting Options ===
+[01/28/2018-09:12:35] [I] Verbose: Disabled
+[01/28/2018-09:12:35] [I] Averages: 3 inferences
+[01/28/2018-09:12:35] [I] Percentile: 99
+[01/28/2018-09:12:35] [I] Dump output: Disabled
+[01/28/2018-09:12:35] [I] Profile: Disabled
+[01/28/2018-09:12:35] [I] Export timing to JSON file: 
+[01/28/2018-09:12:35] [I] Export output to JSON file: 
+[01/28/2018-09:12:35] [I] Export profile to JSON file: 
+[01/28/2018-09:12:35] [I] 
+[01/28/2018-09:12:46] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:13:51] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:13:52] [I] Starting inference threads
+[01/28/2018-09:13:55] [I] Warmup completed 12 queries over 200 ms
+[01/28/2018-09:13:55] [I] Timing trace has 136 queries over 3.11752 s
+[01/28/2018-09:13:55] [I] Trace averages of 3 runs:
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.441 ms - Host latency: 91.6905 ms (end to end 91.6963 ms, enqueue 2.0164 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.3225 ms - Host latency: 91.5713 ms (end to end 91.5772 ms, enqueue 1.97119 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.2048 ms - Host latency: 91.4532 ms (end to end 91.4589 ms, enqueue 1.86605 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.3485 ms - Host latency: 91.5993 ms (end to end 91.6049 ms, enqueue 1.89785 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.2486 ms - Host latency: 91.5033 ms (end to end 91.5092 ms, enqueue 1.9209 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.4655 ms - Host latency: 91.7163 ms (end to end 91.7225 ms, enqueue 1.97408 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.4489 ms - Host latency: 91.6996 ms (end to end 91.7057 ms, enqueue 1.86222 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 92.0934 ms - Host latency: 92.3495 ms (end to end 92.3552 ms, enqueue 2.01636 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.3574 ms - Host latency: 91.6107 ms (end to end 91.6166 ms, enqueue 1.95703 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.5226 ms - Host latency: 91.7727 ms (end to end 91.7791 ms, enqueue 1.87524 ms)
+[01/28/2018-09:13:55] [I] Average on 3 runs - GPU latency: 91.4987 ms - Host latency: 91.7506 ms (end to end 91.7568 ms, enqueue 1.91154 ms)
+[01/28/2018-09:13:55] [I] Host Latency
+[01/28/2018-09:13:55] [I] min: 91.1494 ms (end to end 91.1543 ms)
+[01/28/2018-09:13:55] [I] max: 93.498 ms (end to end 93.5039 ms)
+[01/28/2018-09:13:55] [I] mean: 91.6853 ms (end to end 91.6912 ms)
+[01/28/2018-09:13:55] [I] median: 91.6341 ms (end to end 91.6401 ms)
+[01/28/2018-09:13:55] [I] percentile: 93.498 ms at 99% (end to end 93.5039 ms at 99%)
+[01/28/2018-09:13:55] [I] throughput: 43.6244 qps
+[01/28/2018-09:13:55] [I] walltime: 3.11752 s
+[01/28/2018-09:13:55] [I] Enqueue Time
+[01/28/2018-09:13:55] [I] min: 1.81982 ms
+[01/28/2018-09:13:55] [I] max: 2.14868 ms
+[01/28/2018-09:13:55] [I] median: 1.92468 ms
+[01/28/2018-09:13:55] [I] GPU Compute
+[01/28/2018-09:13:55] [I] min: 90.9058 ms
+[01/28/2018-09:13:55] [I] max: 93.2385 ms
+[01/28/2018-09:13:55] [I] mean: 91.4342 ms
+[01/28/2018-09:13:55] [I] median: 91.3783 ms
+[01/28/2018-09:13:55] [I] percentile: 93.2385 ms at 99%
+[01/28/2018-09:13:55] [I] total compute time: 3.10876 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=4 --iterations=3 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=8 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:13:56] [I] === Model Options ===
+[01/28/2018-09:13:56] [I] Format: Caffe
+[01/28/2018-09:13:56] [I] Model: 
+[01/28/2018-09:13:56] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:13:56] [I] Output: prob
+[01/28/2018-09:13:56] [I] === Build Options ===
+[01/28/2018-09:13:56] [I] Max batch: 8
+[01/28/2018-09:13:56] [I] Workspace: 16 MB
+[01/28/2018-09:13:56] [I] minTiming: 1
+[01/28/2018-09:13:56] [I] avgTiming: 8
+[01/28/2018-09:13:56] [I] Precision: FP32+FP16
+[01/28/2018-09:13:56] [I] Calibration: 
+[01/28/2018-09:13:56] [I] Safe mode: Disabled
+[01/28/2018-09:13:56] [I] Save engine: 
+[01/28/2018-09:13:56] [I] Load engine: 
+[01/28/2018-09:13:56] [I] Builder Cache: Enabled
+[01/28/2018-09:13:56] [I] NVTX verbosity: 0
+[01/28/2018-09:13:56] [I] Inputs format: fp32:CHW
+[01/28/2018-09:13:56] [I] Outputs format: fp32:CHW
+[01/28/2018-09:13:56] [I] Input build shapes: model
+[01/28/2018-09:13:56] [I] Input calibration shapes: model
+[01/28/2018-09:13:56] [I] === System Options ===
+[01/28/2018-09:13:56] [I] Device: 0
+[01/28/2018-09:13:56] [I] DLACore: 
+[01/28/2018-09:13:56] [I] Plugins:
+[01/28/2018-09:13:56] [I] === Inference Options ===
+[01/28/2018-09:13:56] [I] Batch: 8
+[01/28/2018-09:13:56] [I] Input inference shapes: model
+[01/28/2018-09:13:56] [I] Iterations: 3
+[01/28/2018-09:13:56] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:13:56] [I] Sleep time: 0ms
+[01/28/2018-09:13:56] [I] Streams: 1
+[01/28/2018-09:13:56] [I] ExposeDMA: Disabled
+[01/28/2018-09:13:56] [I] Spin-wait: Enabled
+[01/28/2018-09:13:56] [I] Multithreading: Disabled
+[01/28/2018-09:13:56] [I] CUDA Graph: Disabled
+[01/28/2018-09:13:56] [I] Skip inference: Disabled
+[01/28/2018-09:13:56] [I] Inputs:
+[01/28/2018-09:13:56] [I] === Reporting Options ===
+[01/28/2018-09:13:56] [I] Verbose: Disabled
+[01/28/2018-09:13:56] [I] Averages: 3 inferences
+[01/28/2018-09:13:56] [I] Percentile: 99
+[01/28/2018-09:13:56] [I] Dump output: Disabled
+[01/28/2018-09:13:56] [I] Profile: Disabled
+[01/28/2018-09:13:56] [I] Export timing to JSON file: 
+[01/28/2018-09:13:56] [I] Export output to JSON file: 
+[01/28/2018-09:13:56] [I] Export profile to JSON file: 
+[01/28/2018-09:13:56] [I] 
+[01/28/2018-09:14:08] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:15:58] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:15:58] [I] Starting inference threads
+[01/28/2018-09:16:02] [I] Warmup completed 16 queries over 200 ms
+[01/28/2018-09:16:02] [I] Timing trace has 144 queries over 3.23851 s
+[01/28/2018-09:16:02] [I] Trace averages of 3 runs:
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 179.106 ms - Host latency: 179.607 ms (end to end 179.613 ms, enqueue 2.30825 ms)
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 179.131 ms - Host latency: 179.631 ms (end to end 179.637 ms, enqueue 2.11957 ms)
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 179.227 ms - Host latency: 179.727 ms (end to end 179.732 ms, enqueue 2.12907 ms)
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 180.053 ms - Host latency: 180.555 ms (end to end 180.561 ms, enqueue 2.08236 ms)
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 179.256 ms - Host latency: 179.757 ms (end to end 179.762 ms, enqueue 2.21989 ms)
+[01/28/2018-09:16:02] [I] Average on 3 runs - GPU latency: 179.691 ms - Host latency: 180.187 ms (end to end 180.192 ms, enqueue 2.12093 ms)
+[01/28/2018-09:16:02] [I] Host Latency
+[01/28/2018-09:16:02] [I] min: 178.699 ms (end to end 178.704 ms)
+[01/28/2018-09:16:02] [I] max: 181.862 ms (end to end 181.868 ms)
+[01/28/2018-09:16:02] [I] mean: 179.911 ms (end to end 179.916 ms)
+[01/28/2018-09:16:02] [I] median: 179.81 ms (end to end 179.816 ms)
+[01/28/2018-09:16:02] [I] percentile: 181.862 ms at 99% (end to end 181.868 ms at 99%)
+[01/28/2018-09:16:02] [I] throughput: 44.465 qps
+[01/28/2018-09:16:02] [I] walltime: 3.23851 s
+[01/28/2018-09:16:02] [I] Enqueue Time
+[01/28/2018-09:16:02] [I] min: 1.98438 ms
+[01/28/2018-09:16:02] [I] max: 2.34854 ms
+[01/28/2018-09:16:02] [I] median: 2.17688 ms
+[01/28/2018-09:16:02] [I] GPU Compute
+[01/28/2018-09:16:02] [I] min: 178.199 ms
+[01/28/2018-09:16:02] [I] max: 181.362 ms
+[01/28/2018-09:16:02] [I] mean: 179.411 ms
+[01/28/2018-09:16:02] [I] median: 179.307 ms
+[01/28/2018-09:16:02] [I] percentile: 181.362 ms at 99%
+[01/28/2018-09:16:02] [I] total compute time: 3.22939 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=8 --iterations=3 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=16 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:16:02] [I] === Model Options ===
+[01/28/2018-09:16:02] [I] Format: Caffe
+[01/28/2018-09:16:02] [I] Model: 
+[01/28/2018-09:16:02] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:16:02] [I] Output: prob
+[01/28/2018-09:16:02] [I] === Build Options ===
+[01/28/2018-09:16:02] [I] Max batch: 16
+[01/28/2018-09:16:02] [I] Workspace: 16 MB
+[01/28/2018-09:16:02] [I] minTiming: 1
+[01/28/2018-09:16:02] [I] avgTiming: 8
+[01/28/2018-09:16:02] [I] Precision: FP32+FP16
+[01/28/2018-09:16:02] [I] Calibration: 
+[01/28/2018-09:16:02] [I] Safe mode: Disabled
+[01/28/2018-09:16:02] [I] Save engine: 
+[01/28/2018-09:16:02] [I] Load engine: 
+[01/28/2018-09:16:02] [I] Builder Cache: Enabled
+[01/28/2018-09:16:02] [I] NVTX verbosity: 0
+[01/28/2018-09:16:02] [I] Inputs format: fp32:CHW
+[01/28/2018-09:16:02] [I] Outputs format: fp32:CHW
+[01/28/2018-09:16:02] [I] Input build shapes: model
+[01/28/2018-09:16:02] [I] Input calibration shapes: model
+[01/28/2018-09:16:02] [I] === System Options ===
+[01/28/2018-09:16:02] [I] Device: 0
+[01/28/2018-09:16:02] [I] DLACore: 
+[01/28/2018-09:16:02] [I] Plugins:
+[01/28/2018-09:16:02] [I] === Inference Options ===
+[01/28/2018-09:16:02] [I] Batch: 16
+[01/28/2018-09:16:02] [I] Input inference shapes: model
+[01/28/2018-09:16:02] [I] Iterations: 3
+[01/28/2018-09:16:02] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:16:02] [I] Sleep time: 0ms
+[01/28/2018-09:16:02] [I] Streams: 1
+[01/28/2018-09:16:02] [I] ExposeDMA: Disabled
+[01/28/2018-09:16:02] [I] Spin-wait: Enabled
+[01/28/2018-09:16:02] [I] Multithreading: Disabled
+[01/28/2018-09:16:02] [I] CUDA Graph: Disabled
+[01/28/2018-09:16:02] [I] Skip inference: Disabled
+[01/28/2018-09:16:02] [I] Inputs:
+[01/28/2018-09:16:02] [I] === Reporting Options ===
+[01/28/2018-09:16:02] [I] Verbose: Disabled
+[01/28/2018-09:16:02] [I] Averages: 3 inferences
+[01/28/2018-09:16:02] [I] Percentile: 99
+[01/28/2018-09:16:02] [I] Dump output: Disabled
+[01/28/2018-09:16:02] [I] Profile: Disabled
+[01/28/2018-09:16:02] [I] Export timing to JSON file: 
+[01/28/2018-09:16:02] [I] Export output to JSON file: 
+[01/28/2018-09:16:02] [I] Export profile to JSON file: 
+[01/28/2018-09:16:02] [I] 
+[01/28/2018-09:16:18] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:19:31] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:19:32] [I] Starting inference threads
+[01/28/2018-09:19:36] [I] Warmup completed 16 queries over 200 ms
+[01/28/2018-09:19:36] [I] Timing trace has 176 queries over 3.80797 s
+[01/28/2018-09:19:36] [I] Trace averages of 3 runs:
+[01/28/2018-09:19:36] [I] Average on 3 runs - GPU latency: 345.171 ms - Host latency: 346.172 ms (end to end 346.178 ms, enqueue 2.20152 ms)
+[01/28/2018-09:19:36] [I] Average on 3 runs - GPU latency: 345.825 ms - Host latency: 346.83 ms (end to end 346.836 ms, enqueue 2.11849 ms)
+[01/28/2018-09:19:36] [I] Average on 3 runs - GPU latency: 344.846 ms - Host latency: 345.85 ms (end to end 345.856 ms, enqueue 2.1145 ms)
+[01/28/2018-09:19:36] [I] Host Latency
+[01/28/2018-09:19:36] [I] min: 345.461 ms (end to end 345.466 ms)
+[01/28/2018-09:19:36] [I] max: 347.566 ms (end to end 347.572 ms)
+[01/28/2018-09:19:36] [I] mean: 346.172 ms (end to end 346.178 ms)
+[01/28/2018-09:19:36] [I] median: 345.925 ms (end to end 345.931 ms)
+[01/28/2018-09:19:36] [I] percentile: 347.566 ms at 99% (end to end 347.572 ms at 99%)
+[01/28/2018-09:19:36] [I] throughput: 46.2189 qps
+[01/28/2018-09:19:36] [I] walltime: 3.80797 s
+[01/28/2018-09:19:36] [I] Enqueue Time
+[01/28/2018-09:19:36] [I] min: 2.0022 ms
+[01/28/2018-09:19:36] [I] max: 2.30157 ms
+[01/28/2018-09:19:36] [I] median: 2.10522 ms
+[01/28/2018-09:19:36] [I] GPU Compute
+[01/28/2018-09:19:36] [I] min: 344.5 ms
+[01/28/2018-09:19:36] [I] max: 346.565 ms
+[01/28/2018-09:19:36] [I] mean: 345.172 ms
+[01/28/2018-09:19:36] [I] median: 344.921 ms
+[01/28/2018-09:19:36] [I] percentile: 346.565 ms at 99%
+[01/28/2018-09:19:36] [I] total compute time: 3.79689 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=16 --iterations=3 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=32 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:19:37] [I] === Model Options ===
+[01/28/2018-09:19:37] [I] Format: Caffe
+[01/28/2018-09:19:37] [I] Model: 
+[01/28/2018-09:19:37] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:19:37] [I] Output: prob
+[01/28/2018-09:19:37] [I] === Build Options ===
+[01/28/2018-09:19:37] [I] Max batch: 32
+[01/28/2018-09:19:37] [I] Workspace: 16 MB
+[01/28/2018-09:19:37] [I] minTiming: 1
+[01/28/2018-09:19:37] [I] avgTiming: 8
+[01/28/2018-09:19:37] [I] Precision: FP32+FP16
+[01/28/2018-09:19:37] [I] Calibration: 
+[01/28/2018-09:19:37] [I] Safe mode: Disabled
+[01/28/2018-09:19:37] [I] Save engine: 
+[01/28/2018-09:19:37] [I] Load engine: 
+[01/28/2018-09:19:37] [I] Builder Cache: Enabled
+[01/28/2018-09:19:37] [I] NVTX verbosity: 0
+[01/28/2018-09:19:37] [I] Inputs format: fp32:CHW
+[01/28/2018-09:19:37] [I] Outputs format: fp32:CHW
+[01/28/2018-09:19:37] [I] Input build shapes: model
+[01/28/2018-09:19:37] [I] Input calibration shapes: model
+[01/28/2018-09:19:37] [I] === System Options ===
+[01/28/2018-09:19:37] [I] Device: 0
+[01/28/2018-09:19:37] [I] DLACore: 
+[01/28/2018-09:19:37] [I] Plugins:
+[01/28/2018-09:19:37] [I] === Inference Options ===
+[01/28/2018-09:19:37] [I] Batch: 32
+[01/28/2018-09:19:37] [I] Input inference shapes: model
+[01/28/2018-09:19:37] [I] Iterations: 3
+[01/28/2018-09:19:37] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:19:37] [I] Sleep time: 0ms
+[01/28/2018-09:19:37] [I] Streams: 1
+[01/28/2018-09:19:37] [I] ExposeDMA: Disabled
+[01/28/2018-09:19:37] [I] Spin-wait: Enabled
+[01/28/2018-09:19:37] [I] Multithreading: Disabled
+[01/28/2018-09:19:37] [I] CUDA Graph: Disabled
+[01/28/2018-09:19:37] [I] Skip inference: Disabled
+[01/28/2018-09:19:37] [I] Inputs:
+[01/28/2018-09:19:37] [I] === Reporting Options ===
+[01/28/2018-09:19:37] [I] Verbose: Disabled
+[01/28/2018-09:19:37] [I] Averages: 3 inferences
+[01/28/2018-09:19:37] [I] Percentile: 99
+[01/28/2018-09:19:37] [I] Dump output: Disabled
+[01/28/2018-09:19:37] [I] Profile: Disabled
+[01/28/2018-09:19:37] [I] Export timing to JSON file: 
+[01/28/2018-09:19:37] [I] Export output to JSON file: 
+[01/28/2018-09:19:37] [I] Export profile to JSON file: 
+[01/28/2018-09:19:37] [I] 
+[01/28/2018-09:19:55] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:25:43] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:25:44] [I] Starting inference threads
+[01/28/2018-09:25:49] [I] Warmup completed 32 queries over 200 ms
+[01/28/2018-09:25:49] [I] Timing trace has 192 queries over 4.07267 s
+[01/28/2018-09:25:49] [I] Trace averages of 3 runs:
+[01/28/2018-09:25:49] [I] Average on 3 runs - GPU latency: 676.713 ms - Host latency: 678.752 ms (end to end 678.758 ms, enqueue 2.40619 ms)
+[01/28/2018-09:25:49] [I] Average on 3 runs - GPU latency: 676.792 ms - Host latency: 678.792 ms (end to end 678.797 ms, enqueue 2.46403 ms)
+[01/28/2018-09:25:49] [I] Host Latency
+[01/28/2018-09:25:49] [I] min: 677.695 ms (end to end 677.7 ms)
+[01/28/2018-09:25:49] [I] max: 680.248 ms (end to end 680.254 ms)
+[01/28/2018-09:25:49] [I] mean: 678.772 ms (end to end 678.778 ms)
+[01/28/2018-09:25:49] [I] median: 678.37 ms (end to end 678.376 ms)
+[01/28/2018-09:25:49] [I] percentile: 680.248 ms at 99% (end to end 680.254 ms at 99%)
+[01/28/2018-09:25:49] [I] throughput: 47.1435 qps
+[01/28/2018-09:25:49] [I] walltime: 4.07267 s
+[01/28/2018-09:25:49] [I] Enqueue Time
+[01/28/2018-09:25:49] [I] min: 2.02776 ms
+[01/28/2018-09:25:49] [I] max: 2.67834 ms
+[01/28/2018-09:25:49] [I] median: 2.49976 ms
+[01/28/2018-09:25:49] [I] GPU Compute
+[01/28/2018-09:25:49] [I] min: 675.668 ms
+[01/28/2018-09:25:49] [I] max: 678.229 ms
+[01/28/2018-09:25:49] [I] mean: 676.753 ms
+[01/28/2018-09:25:49] [I] median: 676.323 ms
+[01/28/2018-09:25:49] [I] percentile: 678.229 ms at 99%
+[01/28/2018-09:25:49] [I] total compute time: 4.06052 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=32 --iterations=3 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=64 --iterations=64 --output=prob --useSpinWait
+[01/28/2018-09:25:49] [I] === Model Options ===
+[01/28/2018-09:25:49] [I] Format: Caffe
+[01/28/2018-09:25:49] [I] Model: 
+[01/28/2018-09:25:49] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:25:49] [I] Output: prob
+[01/28/2018-09:25:49] [I] === Build Options ===
+[01/28/2018-09:25:49] [I] Max batch: 64
+[01/28/2018-09:25:49] [I] Workspace: 16 MB
+[01/28/2018-09:25:49] [I] minTiming: 1
+[01/28/2018-09:25:49] [I] avgTiming: 8
+[01/28/2018-09:25:49] [I] Precision: FP32+FP16
+[01/28/2018-09:25:49] [I] Calibration: 
+[01/28/2018-09:25:49] [I] Safe mode: Disabled
+[01/28/2018-09:25:49] [I] Save engine: 
+[01/28/2018-09:25:49] [I] Load engine: 
+[01/28/2018-09:25:49] [I] Builder Cache: Enabled
+[01/28/2018-09:25:49] [I] NVTX verbosity: 0
+[01/28/2018-09:25:49] [I] Inputs format: fp32:CHW
+[01/28/2018-09:25:49] [I] Outputs format: fp32:CHW
+[01/28/2018-09:25:49] [I] Input build shapes: model
+[01/28/2018-09:25:49] [I] Input calibration shapes: model
+[01/28/2018-09:25:49] [I] === System Options ===
+[01/28/2018-09:25:49] [I] Device: 0
+[01/28/2018-09:25:49] [I] DLACore: 
+[01/28/2018-09:25:49] [I] Plugins:
+[01/28/2018-09:25:49] [I] === Inference Options ===
+[01/28/2018-09:25:49] [I] Batch: 64
+[01/28/2018-09:25:49] [I] Input inference shapes: model
+[01/28/2018-09:25:49] [I] Iterations: 64
+[01/28/2018-09:25:49] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:25:49] [I] Sleep time: 0ms
+[01/28/2018-09:25:49] [I] Streams: 1
+[01/28/2018-09:25:49] [I] ExposeDMA: Disabled
+[01/28/2018-09:25:49] [I] Spin-wait: Enabled
+[01/28/2018-09:25:49] [I] Multithreading: Disabled
+[01/28/2018-09:25:49] [I] CUDA Graph: Disabled
+[01/28/2018-09:25:49] [I] Skip inference: Disabled
+[01/28/2018-09:25:49] [I] Inputs:
+[01/28/2018-09:25:49] [I] === Reporting Options ===
+[01/28/2018-09:25:49] [I] Verbose: Disabled
+[01/28/2018-09:25:49] [I] Averages: 3 inferences
+[01/28/2018-09:25:49] [I] Percentile: 99
+[01/28/2018-09:25:49] [I] Dump output: Disabled
+[01/28/2018-09:25:49] [I] Profile: Disabled
+[01/28/2018-09:25:49] [I] Export timing to JSON file: 
+[01/28/2018-09:25:49] [I] Export output to JSON file: 
+[01/28/2018-09:25:49] [I] Export profile to JSON file: 
+[01/28/2018-09:25:49] [I] 
+[01/28/2018-09:26:19] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-09:37:21] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-09:37:22] [I] Starting inference threads
+[01/28/2018-09:38:49] [I] Warmup completed 64 queries over 200 ms
+[01/28/2018-09:38:49] [I] Timing trace has 4096 queries over 86.2065 s
+[01/28/2018-09:38:49] [I] Trace averages of 3 runs:
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1341.95 ms - Host latency: 1345.97 ms (end to end 1345.97 ms, enqueue 2.55758 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.69 ms - Host latency: 1347.7 ms (end to end 1347.71 ms, enqueue 2.62939 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.48 ms - Host latency: 1347.5 ms (end to end 1347.5 ms, enqueue 2.53695 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1342.04 ms - Host latency: 1346.06 ms (end to end 1346.07 ms, enqueue 2.53678 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1342.95 ms - Host latency: 1346.95 ms (end to end 1346.95 ms, enqueue 2.54557 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.37 ms - Host latency: 1347.39 ms (end to end 1347.39 ms, enqueue 2.5 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.38 ms - Host latency: 1347.38 ms (end to end 1347.39 ms, enqueue 2.54102 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.42 ms - Host latency: 1347.44 ms (end to end 1347.44 ms, enqueue 2.50391 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1344.9 ms - Host latency: 1348.91 ms (end to end 1348.92 ms, enqueue 2.57292 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1341.47 ms - Host latency: 1345.48 ms (end to end 1345.49 ms, enqueue 2.55729 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1341.78 ms - Host latency: 1345.78 ms (end to end 1345.79 ms, enqueue 2.57943 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1345.2 ms - Host latency: 1349.22 ms (end to end 1349.23 ms, enqueue 2.57031 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1341.48 ms - Host latency: 1345.48 ms (end to end 1345.49 ms, enqueue 2.50911 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1346.69 ms - Host latency: 1350.71 ms (end to end 1350.71 ms, enqueue 2.50651 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1342.58 ms - Host latency: 1346.6 ms (end to end 1346.6 ms, enqueue 2.51302 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.33 ms - Host latency: 1347.34 ms (end to end 1347.35 ms, enqueue 2.48828 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1342.24 ms - Host latency: 1346.26 ms (end to end 1346.27 ms, enqueue 2.52083 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1343.62 ms - Host latency: 1347.64 ms (end to end 1347.64 ms, enqueue 2.52083 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1342.75 ms - Host latency: 1346.76 ms (end to end 1346.77 ms, enqueue 2.53906 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1344.37 ms - Host latency: 1348.39 ms (end to end 1348.4 ms, enqueue 2.53125 ms)
+[01/28/2018-09:38:49] [I] Average on 3 runs - GPU latency: 1340.16 ms - Host latency: 1344.18 ms (end to end 1344.18 ms, enqueue 2.51823 ms)
+[01/28/2018-09:38:49] [I] Host Latency
+[01/28/2018-09:38:49] [I] min: 1338.66 ms (end to end 1338.66 ms)
+[01/28/2018-09:38:49] [I] max: 1351.15 ms (end to end 1351.16 ms)
+[01/28/2018-09:38:49] [I] mean: 1346.97 ms (end to end 1346.98 ms)
+[01/28/2018-09:38:49] [I] median: 1346.52 ms (end to end 1346.52 ms)
+[01/28/2018-09:38:49] [I] percentile: 1351.15 ms at 99% (end to end 1351.16 ms at 99%)
+[01/28/2018-09:38:49] [I] throughput: 47.5138 qps
+[01/28/2018-09:38:49] [I] walltime: 86.2065 s
+[01/28/2018-09:38:49] [I] Enqueue Time
+[01/28/2018-09:38:49] [I] min: 2.15333 ms
+[01/28/2018-09:38:49] [I] max: 2.81372 ms
+[01/28/2018-09:38:49] [I] median: 2.53711 ms
+[01/28/2018-09:38:49] [I] GPU Compute
+[01/28/2018-09:38:49] [I] min: 1334.76 ms
+[01/28/2018-09:38:49] [I] max: 1347.13 ms
+[01/28/2018-09:38:49] [I] mean: 1342.96 ms
+[01/28/2018-09:38:49] [I] median: 1342.51 ms
+[01/28/2018-09:38:49] [I] percentile: 1347.13 ms at 99%
+[01/28/2018-09:38:49] [I] total compute time: 85.9493 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=64 --iterations=64 --output=prob --useSpinWait
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=128 --iterations=3 --output=prob --useSpinWait
+[01/28/2018-09:38:50] [I] === Model Options ===
+[01/28/2018-09:38:50] [I] Format: Caffe
+[01/28/2018-09:38:50] [I] Model: 
+[01/28/2018-09:38:50] [I] Prototxt: Models/resnet-50.prototxt
+[01/28/2018-09:38:50] [I] Output: prob
+[01/28/2018-09:38:50] [I] === Build Options ===
+[01/28/2018-09:38:50] [I] Max batch: 128
+[01/28/2018-09:38:50] [I] Workspace: 16 MB
+[01/28/2018-09:38:50] [I] minTiming: 1
+[01/28/2018-09:38:50] [I] avgTiming: 8
+[01/28/2018-09:38:50] [I] Precision: FP32+FP16
+[01/28/2018-09:38:50] [I] Calibration: 
+[01/28/2018-09:38:50] [I] Safe mode: Disabled
+[01/28/2018-09:38:50] [I] Save engine: 
+[01/28/2018-09:38:50] [I] Load engine: 
+[01/28/2018-09:38:50] [I] Builder Cache: Enabled
+[01/28/2018-09:38:50] [I] NVTX verbosity: 0
+[01/28/2018-09:38:50] [I] Inputs format: fp32:CHW
+[01/28/2018-09:38:50] [I] Outputs format: fp32:CHW
+[01/28/2018-09:38:50] [I] Input build shapes: model
+[01/28/2018-09:38:50] [I] Input calibration shapes: model
+[01/28/2018-09:38:50] [I] === System Options ===
+[01/28/2018-09:38:50] [I] Device: 0
+[01/28/2018-09:38:50] [I] DLACore: 
+[01/28/2018-09:38:50] [I] Plugins:
+[01/28/2018-09:38:50] [I] === Inference Options ===
+[01/28/2018-09:38:50] [I] Batch: 128
+[01/28/2018-09:38:50] [I] Input inference shapes: model
+[01/28/2018-09:38:50] [I] Iterations: 3
+[01/28/2018-09:38:50] [I] Duration: 3s (+ 200ms warm up)
+[01/28/2018-09:38:50] [I] Sleep time: 0ms
+[01/28/2018-09:38:50] [I] Streams: 1
+[01/28/2018-09:38:50] [I] ExposeDMA: Disabled
+[01/28/2018-09:38:50] [I] Spin-wait: Enabled
+[01/28/2018-09:38:50] [I] Multithreading: Disabled
+[01/28/2018-09:38:50] [I] CUDA Graph: Disabled
+[01/28/2018-09:38:50] [I] Skip inference: Disabled
+[01/28/2018-09:38:50] [I] Inputs:
+[01/28/2018-09:38:50] [I] === Reporting Options ===
+[01/28/2018-09:38:50] [I] Verbose: Disabled
+[01/28/2018-09:38:50] [I] Averages: 3 inferences
+[01/28/2018-09:38:50] [I] Percentile: 99
+[01/28/2018-09:38:50] [I] Dump output: Disabled
+[01/28/2018-09:38:50] [I] Profile: Disabled
+[01/28/2018-09:38:50] [I] Export timing to JSON file: 
+[01/28/2018-09:38:50] [I] Export output to JSON file: 
+[01/28/2018-09:38:50] [I] Export profile to JSON file: 
+[01/28/2018-09:38:50] [I] 
+[01/28/2018-09:39:42] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[01/28/2018-10:01:13] [I] [TRT] Detected 1 inputs and 1 output network tensors.
+[01/28/2018-10:01:14] [I] Starting inference threads
+[01/28/2018-10:01:25] [I] Warmup completed 128 queries over 200 ms
+[01/28/2018-10:01:25] [I] Timing trace has 384 queries over 8.03716 s
+[01/28/2018-10:01:25] [I] Trace averages of 3 runs:
+[01/28/2018-10:01:25] [I] Average on 3 runs - GPU latency: 2670.99 ms - Host latency: 2679.05 ms (end to end 2679.05 ms, enqueue 2.59933 ms)
+[01/28/2018-10:01:25] [I] Host Latency
+[01/28/2018-10:01:25] [I] min: 2668.07 ms (end to end 2668.07 ms)
+[01/28/2018-10:01:25] [I] max: 2689.09 ms (end to end 2689.09 ms)
+[01/28/2018-10:01:25] [I] mean: 2679.05 ms (end to end 2679.05 ms)
+[01/28/2018-10:01:25] [I] median: 2679.98 ms (end to end 2679.99 ms)
+[01/28/2018-10:01:25] [I] percentile: 2689.09 ms at 99% (end to end 2689.09 ms at 99%)
+[01/28/2018-10:01:25] [I] throughput: 47.7781 qps
+[01/28/2018-10:01:25] [I] walltime: 8.03716 s
+[01/28/2018-10:01:25] [I] Enqueue Time
+[01/28/2018-10:01:25] [I] min: 2.10245 ms
+[01/28/2018-10:01:25] [I] max: 2.85181 ms
+[01/28/2018-10:01:25] [I] median: 2.84375 ms
+[01/28/2018-10:01:25] [I] GPU Compute
+[01/28/2018-10:01:25] [I] min: 2660.1 ms
+[01/28/2018-10:01:25] [I] max: 2680.99 ms
+[01/28/2018-10:01:25] [I] mean: 2670.99 ms
+[01/28/2018-10:01:25] [I] median: 2671.88 ms
+[01/28/2018-10:01:25] [I] percentile: 2680.99 ms at 99%
+[01/28/2018-10:01:25] [I] total compute time: 8.01297 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/trtexec --avgRuns=3 --deploy=Models/resnet-50.prototxt --fp16 --batch=128 --iterations=3 --output=prob --useSpinWait
