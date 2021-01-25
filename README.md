@@ -1,8 +1,8 @@
 # data_statistics
 
 **Table Of Contents**
-- [About](#References)(#1)
-- [About2](#Coding Stage#3)
+- [About](#References)
+- [About2](#Coding Stage3)
 
 ## About
 A project to **automated the extraction of** **"required"** parameters from 
