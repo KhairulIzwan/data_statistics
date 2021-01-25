@@ -1,5 +1,8 @@
 # data_statistics
 
+**Table Of Contents**
+- [About](#References)
+
 ## About
 A project to **automated the extraction of** **"required"** parameters from 
 **original text files (.txt)** and make a copy of in **comma separated value**
