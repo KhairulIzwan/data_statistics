@@ -1,8 +1,7 @@
 # data_statistics
 
 **Table Of Contents**
-- [About](#References)
-- [About2](#L588)
+
 
 ## About
 A project to **automated the extraction of** **"required"** parameters from 
