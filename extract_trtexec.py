@@ -98,13 +98,13 @@ def matched_lines(file_name, list_of_strings):
 	else:
 		return False
 		
-def find_line_of_interest(file_name, string_to_search):
+def find_line_of_interest(file_name, string_to_search, offset):
 	""" """
 	line_of_interest = []
 	line_of_data = []
 	interested = search_string_in_file(file_name, string_to_search)
 	for i in interested:
-		line_of_interest.append(i)
+		line_of_interest.append(i+offset)
 		
 	return line_of_interest
 	
@@ -157,12 +157,13 @@ else:
 	print("[ERROR] Required headers are missing or in-balance...")
 	sys.exit("[ERROR] Files may be corrupted...")
 
-line_of_format = find_line_of_interest(args["file"], 'Format:')
-line_of_prototxt = find_line_of_interest(args["file"], 'Prototxt:')
-line_of_precision = find_line_of_interest(args["file"], 'Precision:')
-line_of_iteration = find_line_of_interest(args["file"], 'Iterations:')
-line_of_batch = find_line_of_interest(args["file"], 'Batch:')
-line_of_throughput = find_line_of_interest(args["file"], 'throughput:')
+line_of_format = find_line_of_interest(args["file"], 'Format:', 0)
+line_of_prototxt = find_line_of_interest(args["file"], 'Prototxt:', 0)
+line_of_precision = find_line_of_interest(args["file"], 'Precision:', 0)
+line_of_iteration = find_line_of_interest(args["file"], 'Iterations:', 0)
+line_of_batch = find_line_of_interest(args["file"], 'Batch:', 0)
+line_of_throughput = find_line_of_interest(args["file"], 'throughput:', 0)
+line_of_host_latency_min = find_line_of_interest(args["file"], 'Host Latency', 1)
 
 list_of_format = list_of_interest(line_of_format, 34)
 list_of_prototxt = list_of_interest(line_of_prototxt, 36)
@@ -170,6 +171,7 @@ list_of_precision = list_of_interest(line_of_precision, 37)
 list_of_iteration = list_of_interest(line_of_iteration, 38)
 list_of_batch = list_of_interest(line_of_batch, 26)
 list_of_throughput = list_of_interest(line_of_throughput, 38)
+list_of_host_latency_min = list_of_interest(line_of_host_latency_min, 31)
 
 # Checking for purist data
 # Ensure same "Format", "Prototxt", "Precision", "Iterations" were used
@@ -187,6 +189,11 @@ print("Iteration: %s" % usedIteration)
 print("Throughput:")
 
 for (i, j) in zip(list_of_batch, list_of_throughput):
+	print("%s: %s" % (i, j))
+	
+print("Host Latency (MIN):")
+
+for (i, j) in zip(list_of_batch, list_of_host_latency_min):
 	print("%s: %s" % (i, j))
 
 print("*" * 40)
@@ -211,10 +218,10 @@ with open(newFilename, mode='w') as extract_file:
 	extract_writer.writerow(["Prototxt", usedPrototxt])
 	extract_writer.writerow(["Precision", usedPrecision])
 	extract_writer.writerow(["Iteration", usedIteration])
-	extract_writer.writerow([" ", "Throughput"])
+	extract_writer.writerow([" ", "Throughput", "Host Latency (MIN)"])
 	
-	for (i, j) in zip(list_of_batch, list_of_throughput):
-		extract_writer.writerow([i, j])
+	for (i, j, k) in zip(list_of_batch, list_of_throughput, list_of_host_latency_min):
+		extract_writer.writerow([i, j, k])
 		
 print("[INFO] Extracted files were save in: %s" % newFilename)
 os.system('tree')

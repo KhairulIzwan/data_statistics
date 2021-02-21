@@ -1,0 +1,12 @@
+Format,Caffe
+Prototxt,Models/resnet-50.prototxt
+Precision,FP32+INT8
+Iteration,3
+ ,Throughput,Host Latency (MIN)
+Batch: 1,18.0758 qps,55.1414 ms (end to end 55.1486 ms)
+Batch: 4,20.0093 qps,199.272 ms (end to end 199.278 ms)
+Batch: 8,21.3609 qps,373.747 ms (end to end 373.753 ms)
+Batch: 16,22.3395 qps,714.088 ms (end to end 714.092 ms)
+Batch: 32,23.453 qps,1362.14 ms (end to end 1362.15 ms)
+Batch: 64,24.7251 qps,2581.83 ms (end to end 2581.84 ms)
+Batch: 128,24.7792 qps,5159.68 ms (end to end 5159.68 ms)
